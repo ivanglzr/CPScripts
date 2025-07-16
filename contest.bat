@@ -1,2 +1,2 @@
 @echo off
-python C:/Users/OscarIvanMarta/scripts/main.py %*
+python %USERPROFILE%/scripts/main.py %*
