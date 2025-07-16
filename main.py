@@ -30,14 +30,6 @@ except (ValueError, IndexError):
     print("❌ Debes indicar un número entero entre 1 y 26 tras -n")
     print_usage()
 
-# Comprobar -t
-use_template2 = "-t" in sys.argv
-
-template = "C:/Users/OscarIvanMarta/scripts/template2.cpp" if use_template2 else "C:/Users/OscarIvanMarta/scripts/template.cpp"
-if not os.path.exists(template):
-    print(f"❌ No se encontró la plantilla '{template}'.")
-    sys.exit(1)
-
 # Crear carpeta si no existe
 if not os.path.exists(folder_name):
     os.makedirs(folder_name)
@@ -52,8 +44,8 @@ for i in range(n):
     if os.path.exists(filename):
         print(f"⚠️  {filename} ya existe. Saltando...")
         continue
-    shutil.copyfile(template, filename)
-    print(f"✅ {filename} creado con plantilla '{template}'")
+    with open(filename, "w") as fp:
+        pass
 
 print("🚀 ¡Archivos generados correctamente!")
 
